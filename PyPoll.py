@@ -38,6 +38,7 @@ with open(file_to_load) as election_data:
     for candidate_name in candidate_votes:
         votes = candidate_votes[candidate_name]
         vote_percentage = float(votes) / float(total_votes) * 100
-        print(f"{candidate_name}: received {vote_percentage}% of the vote.")
+        print(candidate_name)
+        print(vote_percentage)
 
 
