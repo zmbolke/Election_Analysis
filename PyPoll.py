@@ -9,8 +9,9 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 #Assign a variable to the save file
 file_to_save = os.path.join("Analysis", "election_analysis.txt")
 
-#set total vote equal to 0
+#Declare variables 
 total_votes = 0
+candidate_options = []
 
 #Open elction results and read file
 with open(file_to_load) as election_data:
@@ -21,10 +22,15 @@ with open(file_to_load) as election_data:
     for row in file_reader:
         #add up votes
         total_votes += 1
+        #Candidate names
+        candidate_name = row[2]
+        #add names to list
+        if candidate_name not in candidate_options:
+            candidate_options.append(candidate_name)
 
-#Print total votes
+#Print names and total votes
+print(candidate_options)
 print(total_votes)
-
 
 #Perform analysis
 
