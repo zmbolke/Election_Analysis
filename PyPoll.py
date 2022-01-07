@@ -9,9 +9,12 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 #Assign a variable to the save file
 file_to_save = os.path.join("Analysis", "election_analysis.txt")
 
-#Declare variables 
+#set total votes equal to 0 
 total_votes = 0
+#create list of candidates
 candidate_options = []
+#create dictionary to track votes
+candidate_votes = {}
 
 #Open elction results and read file
 with open(file_to_load) as election_data:
@@ -24,18 +27,17 @@ with open(file_to_load) as election_data:
         total_votes += 1
         #Candidate names
         candidate_name = row[2]
-        #add names to list
         if candidate_name not in candidate_options:
+            #add candidates to the list
             candidate_options.append(candidate_name)
+            #set vote count for each candidate to 0
+            candidate_votes[candidate_name] = 0
+        #add up votes for each candidate 
+        candidate_votes[candidate_name] += 1
+    #PRINT vote percentage for each candidate   
+    for candidate_name in candidate_votes:
+        votes = candidate_votes[candidate_name]
+        vote_percentage = float(votes) / float(total_votes) * 100
+        print(f"{candidate_name}: received {vote_percentage}% of the vote.")
 
-#Print names and total votes
-print(candidate_options)
-print(total_votes)
 
-#Perform analysis
-
-
-#2 Get a complete list of candidates who received votes
-#3 Number of votes poer candidate
-#4 Percentage of votes per candidate
-#5 The winner of the election based on popular vote
