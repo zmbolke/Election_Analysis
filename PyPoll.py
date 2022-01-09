@@ -15,6 +15,10 @@ total_votes = 0
 candidate_options = []
 #create dictionary to track votes
 candidate_votes = {}
+winning_candidate = ""
+winning_count = 0 
+winning_vote = 0
+
 
 #Open elction results and read file
 with open(file_to_load) as election_data:
@@ -38,7 +42,7 @@ with open(file_to_load) as election_data:
     for candidate_name in candidate_votes:
         votes = candidate_votes[candidate_name]
         vote_percentage = float(votes) / float(total_votes) * 100
-        print(candidate_name)
-        print(vote_percentage)
+        print(f"{candidate_name}: received {vote_percentage: .2f}% of the vote.")
+      
 
 
