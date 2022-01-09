@@ -48,8 +48,8 @@ with open(file_to_load) as election_data:
             winning_percentage = vote_percentage
             winning_candidate = candidate_name
 
-        print(f"{candidate_name}: received {vote_percentage: .2f}% of the vote.")
-    print(f"{winning_candidate}")
+        print(f"{candidate_name}: {vote_percentage: .1f}% ({votes:,})\n")
+    print(f" --------------------\n Winner: {winning_candidate}\n Winning Vote COunt: {winning_count:,}\n Winning Percentage: {winning_percentage: .1f}\n --------------------\n")
 
 
 
